@@ -98,18 +98,21 @@ export const onCreatePage = async (
     const localePage = await generatePage({
       language: lng,
       path: `${lng}${page.path}`,
-      matchPath: page.matchPath ? `/${lng}${page.matchPath}` : undefined,
+      matchPath: page.matchPath,
       routed: true
     });
-    const regexp = new RegExp('/404/?$');
-    if (regexp.test(localePage.path)) {
-      localePage.matchPath = `/${lng}/*`;
-    }
+    
     if (localePage.matchPath !== undefined) {
       if (localePage.matchPath.split('/')[1] !== lng) {
-        localePage.matchPath = "/" + lng + localePage.matchPath;
+        regexp = new RegExp('/404/?$')
+        if (regexp.test(localePage.path)) {
+          localePage.matchPath = "/" + lng + "/*";
+        } else {
+          localePage.matchPath = "/" + lng + localePage.matchPath;
+        }
       }
     }
+    
     createPage(localePage);
   });
 };
