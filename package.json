@@ -38,18 +38,15 @@
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "build:ts": "babel src --out-dir dist --extensions .ts,.tsx",
-    "build:defs": "tsc --declaration --outDir dist --emitDeclarationOnly",
+    "build": "tsc --declaration --outDir dist ",
     "dev": "babel -w src --out-dir dist --extensions .ts,.tsx",
-    "prepare": "NODE_ENV=production yarn run build:ts && yarn run build:defs",
+    "prepare": "NODE_ENV=production yarn run build",
     "format": "prettier --write 'src/**/*.{js,jsx,json,ts,tsx,md}'",
     "release": "release-it"
   },
   "devDependencies": {
-    "@babel/cli": "^7.19.3",
     "@types/bluebird": "^3.5.38",
     "@types/react": "^18.0.25",
-    "babel-preset-gatsby-package": "^3.2.0",
     "gatsby": "^5.2.0",
     "husky": "^4.3.8",
     "i18next": "^22.0.6",
