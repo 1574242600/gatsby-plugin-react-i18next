@@ -23,7 +23,7 @@
     "translate"
   ],
   "repository": {
-    "url": "https://github.com/microapps/gatsby-plugin-react-i18next"
+    "url": "https://github.com/1574242600/gatsby-plugin-react-i18next"
   },
   "files": [
     "dist",
@@ -35,7 +35,7 @@
   ],
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
     "build": "tsc --declaration --outDir dist ",
