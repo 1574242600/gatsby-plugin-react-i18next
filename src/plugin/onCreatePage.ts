@@ -101,18 +101,18 @@ export const onCreatePage = async (
       matchPath: page.matchPath,
       routed: true
     });
-    
+
     if (localePage.matchPath !== undefined) {
       if (localePage.matchPath.split('/')[1] !== lng) {
-        regexp = new RegExp('/404/?$')
+        const regexp = new RegExp('/404/?$');
         if (regexp.test(localePage.path)) {
-          localePage.matchPath = "/" + lng + "/*";
+          localePage.matchPath = '/' + lng + '/*';
         } else {
-          localePage.matchPath = "/" + lng + localePage.matchPath;
+          localePage.matchPath = '/' + lng + localePage.matchPath;
         }
       }
     }
-    
+
     createPage(localePage);
   });
 };
